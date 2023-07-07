@@ -3,14 +3,15 @@ require 'connection.php';
 
 class userModel extends database
 {
+    // This function is used to fetch the allsongs to show in the homepage when user enter as a guest.
     public function fetchingData()
     {
         $fetch = $this->db->query("SELECT * FROM songs");
         $fetchData = $fetch->fetchAll(PDO::FETCH_OBJ);
         return $fetchData;
-//        var_dump($fetchData[0]->song_name);
     }
 
+    //This function is used to filter the songs by search.
     public function searchSongs($searchedWord)
     {
         $word = $searchedWord['searchSong'];
@@ -19,6 +20,7 @@ class userModel extends database
         return $filteredSongs;
     }
 
+    //This function is used to check the user is a logined and exisiting  user or not.
     public function checkingTheLoginUser($userName, $password)
     {
         $loginUser = $this->db->query("SELECT * from users WHERE name = '$userName' and password = '$password'");
@@ -34,12 +36,12 @@ class userModel extends database
         }
     }
 
+    //This function is used to upload the songs when the login user can upload.
     public function uploadSongs($song)
     {
         $songs = $song['audioFile'];
         $imgs = $song['audioImg'];
-
-
+        $songName = ($songs['name'][0]);
         foreach ($_FILES['audioImg']['tmp_name'] as $key => $value) {
             $img_tmpname = $song['audioImg']['tmp_name'][$key];
             $img_name = $song['audioImg']['name'][$key];
@@ -47,14 +49,13 @@ class userModel extends database
             move_uploaded_file($img_tmpname,$img_path);
             $this->db->query("INSERT INTO songs(songsimgs) values('$img_path')");
         }
-
-//        foreach ($_FILES['audioFile']['tmp_name'] as $k => $value) {
-//            $song_tmpname = $_FILES['audioFile']['tmp_name'][$k];
-//            $song_name = $_FILES['audioFile']['name'][$k];
-//            $songpath = "songs/".$song_name;
-//            move_uploaded_file($song_tmpname, $songpath);
-//        }
+        header('location:/');
         }
+        public function getPremium($userid){
+            $this->db->query("INSERT INTO user_request_premium(user_id,request,approval) values ('$userid','I want to user premium','yes')");
+            $this->db->query('UPDATE users set is_premium ="yes" where users.id =$userid');
+            header('location:/');
+    }
 }
 
 

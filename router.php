@@ -36,18 +36,23 @@ class router
                 $action = $routerValue['action'];
                 switch ($action)
                 {
+                    // Redirect to the Homepage.
                     case 'homepage':
                         $this->controller->homepage();
                         break;
+                    // Redirect to the Search Filter Function.
                     case "searchSong":
                         $this->controller->searchSong($_POST);
                         break;
+                    // Redirect to checking the user is existing Filter Function.
                     case "login":
                         $this->controller->checkLoginUser($_POST);
                         break;
+                    // Redirect to the  upload song  Function.
                     case "uploadsong":
                         $this->controller->uploadSongs($_FILES);
                         break;
+                    // Redirect to the get premium Function.
                     case "getPremium":
                         $this->controller->getpremium($_POST);
                         break;

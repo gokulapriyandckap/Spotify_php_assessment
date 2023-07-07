@@ -14,7 +14,6 @@ class userController
         $fetchedSongs = $this->model->fetchingData();
         $allsongs = $this->model->fetchingData();
         require 'view/homepage.php';
-        require 'view/loginuserhomepage.php';
     }
     public function searchSong($search){
         $filteredSong = $this->model->searchSongs($search);
@@ -27,8 +26,7 @@ class userController
             $this->model->uploadSongs($songs);
     }
     public function getpremium($userId){
-        var_dump($userId['getPremium']);
-//        $this->model->uploadSongs($songs);
+        $this->model->getPremium($userId);
     }
 
 }

@@ -18,17 +18,17 @@ $_SESSION['username'] = $username;
 
 $_SESSION['userId'] = $userId;
 
-//echo
+
 echo "Hello "." ".$_SESSION['username']." Let's Vibe✨";
 echo '<br>';
 
 $userIds = $_SESSION['userId'];
-echo $userIds;
-echo '<html>
+//echo $userIds;
+
+echo '
 <form action="getPremium" method="post">
-<button value="$userIds">Get Premium</button>
-</form>
-</html>';
+<button value=';echo "'$userIds'>Get Premium</button>
+</form>";
 
 if (isset($username)){
     echo '<br>';
