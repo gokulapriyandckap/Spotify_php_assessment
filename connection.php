@@ -1,5 +1,6 @@
 <?php
 
+//This class is Used for to connect the database.
 class database{
     public $db;
 
@@ -13,7 +14,7 @@ class database{
             );
         }
         catch (Exception $e){
-            die($e->getMessage()."db didn't connceted");
+            die($e->getMessage()."db didn't connected");
         }
     }
 }

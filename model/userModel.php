@@ -3,7 +3,7 @@ require 'connection.php';
 
 class userModel extends database
 {
-    // This function is used to fetch the allsongs to show in the homepage when user enter as a guest.
+    // This function is used to fetch the all songs to show in the homepage when user enter as a guest.
     public function fetchingData()
     {
         $fetch = $this->db->query("SELECT * FROM songs");
@@ -51,6 +51,8 @@ class userModel extends database
         }
         header('location:/');
         }
+
+        // This Function is used to request the premium for the user by id to the admin. These data are inserted into the user_request_premium table.
         public function getPremium($userid){
             $this->db->query("INSERT INTO user_request_premium(user_id,request,approval) values ('$userid','I want to user premium','yes')");
             $this->db->query('UPDATE users set is_premium ="yes" where users.id =$userid');
