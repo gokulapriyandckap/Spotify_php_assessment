@@ -3,6 +3,7 @@ require 'connection.php';
 
 class userModel extends database
 {
+    
     // This function is used to fetch the all songs to show in the homepage when user enter as a guest.
     public function fetchingData()
     {
