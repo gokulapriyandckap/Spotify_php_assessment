@@ -4,6 +4,7 @@
 class database{
     public $db;
 
+    
     public function __construct()
     {
         try {

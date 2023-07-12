@@ -59,7 +59,7 @@ class router
                     case "login":
                         $this->controller->checkLoginUser($_POST);
                         break;
-                    // Redirect to the  upload song  Function.
+                    // Redirect to the  upload song Function.
                     case "uploadsong":
                         $this->controller->uploadSongs($_FILES);
                         break;

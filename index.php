@@ -6,7 +6,7 @@ require 'router.php';
 // Here $router variable is used to make the object of the router class in router.php file.
 $router = new router();
 
-// This Function call the get Function and send the arguments one is url and another one is action.
+// This Function call the get Function and send the arguments one is url and another one is  action.
 $router->get('/','homepage');
 
 // This Function call the Post Function and send the arguments one is url and another one is action.
